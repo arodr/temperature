@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+  <form>
+    <fieldset>
+      <legend>Convert</legend>
+      Number To Convert:<br>
+      <input type="number" id="number" min="1" max="500"><br>
+      Convert To:<br>
+      <select id="temperature">
+        <option selected>Select Options</option>
+        <option id="Farenhrit">Farenheit</option>
+        <option id="celsius">Celsius</option>
+      </select>
+    </fieldset>
+  </form>
+    <div>
+      <button onclick="convert()">submit</button>
+      <hr>
+      <h3 id="result"></h3>
+      <p id="demo"></p>
+    </div>
+    <script src="index.js">
+    var temp = document.getElementById('temperature').selectedIndex;
+    // var option = document.getElementsByTagName('option')[temp];
+    var option = document.getElementById("temperature").options;
+    var num = document.getElementById('number').value;
+
+    function result(){
+      document.getElementById('result').innerHTML = num;
+    }
+    function convert(){
+    if(option[temp].index === 1){
+      alert(option[temp].text)
+      var faren = Math.floor(num-32*(5/9));
+      document.getElementById('result').innerHTML = faren+'C';
+    }else if(option[temp].index === 2){
+      var cels = Math.floor(9/5*(num+32));
+      document.getElementById('result').innerHTML = cels+'F';
+      }
+    }
+   </script>
+  </body>
+</html>
